@@ -27,6 +27,7 @@ class MainApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: const Text('🐵🐵TK List & GridView🍌🍌'),
+          centerTitle: true,
           backgroundColor: Colors.orange,
           foregroundColor: Colors.white,
         ),
