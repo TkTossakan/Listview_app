@@ -51,7 +51,7 @@ class MainApp extends StatelessWidget {
                             color: Colors.brown,
                           ),
                         ),
-                        ShowAllButton(),
+                        ShowAllGridButton(),
                       ],
                     ),
                   ),
@@ -141,7 +141,7 @@ class MainApp extends StatelessWidget {
                             color: Colors.brown,
                           ),
                         ),
-                        ShowAllButton(),
+                        ShowAllListButton(),
                       ],
                     ),
                   ),
@@ -196,17 +196,16 @@ class MainApp extends StatelessWidget {
   }
 }
 
-// 🔘 ปุ่มแสดงทั้งหมดแบบเรียบร้อย reusable
-class ShowAllButton extends StatelessWidget {
-  const ShowAllButton({super.key});
+// 🔘 ปุ่มสำหรับ GridView
+class ShowAllGridButton extends StatelessWidget {
+  const ShowAllGridButton({super.key});
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton.icon(
       onPressed: () {
-        // แสดงทั้งหมดเมื่อกด
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('ยังไม่มีอะไรจะแสดงนะจ๊ะ 🙈')),
+          const SnackBar(content: Text('แสดงทั้งหมดในกริดกล้วย 🍌')),
         );
       },
       style: ElevatedButton.styleFrom(
@@ -218,6 +217,35 @@ class ShowAllButton extends StatelessWidget {
         ),
       ),
       icon: const Icon(Icons.grid_view, size: 16),
+      label: const Text(
+        'แสดงทั้งหมด',
+        style: TextStyle(fontWeight: FontWeight.bold),
+      ),
+    );
+  }
+}
+
+// 🔘 ปุ่มสำหรับ ListView
+class ShowAllListButton extends StatelessWidget {
+  const ShowAllListButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton.icon(
+      onPressed: () {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('แสดงทั้งหมดในรายการลิง 🐒')),
+        );
+      },
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.brown.shade400,
+        foregroundColor: Colors.white,
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+        ),
+      ),
+      icon: const Icon(Icons.list_alt, size: 16),
       label: const Text(
         'แสดงทั้งหมด',
         style: TextStyle(fontWeight: FontWeight.bold),
