@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:listview_app/gallery.dart';
+import 'package:listview_app/list.dart';
 
 void main() {
   runApp(const MainApp());
@@ -22,7 +25,7 @@ class MainApp extends StatelessWidget {
       'assets/images/10.jpg',
     ];
 
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
@@ -42,8 +45,8 @@ class MainApp extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [
-                        Text(
+                      children: [
+                        const Text(
                           'กริดกล้วย 🍌',
                           style: TextStyle(
                             fontSize: 18,
@@ -51,7 +54,13 @@ class MainApp extends StatelessWidget {
                             color: Colors.brown,
                           ),
                         ),
-                        ShowAllGridButton(),
+                        const SizedBox(height: 20),
+                        ElevatedButton(
+                          onPressed: () {
+                            Get.to(() => const Gallery());
+                          },
+                          child: const Text("กดสิ..!!!!"),
+                        ),
                       ],
                     ),
                   ),
@@ -132,8 +141,8 @@ class MainApp extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [
-                        Text(
+                      children: [
+                        const Text(
                           'รายการลิง 🐒',
                           style: TextStyle(
                             fontSize: 18,
@@ -141,7 +150,13 @@ class MainApp extends StatelessWidget {
                             color: Colors.brown,
                           ),
                         ),
-                        ShowAllListButton(),
+                        const SizedBox(height: 20),
+                        ElevatedButton(
+                          onPressed: () {
+                            Get.to(() => const ListPage());
+                          },
+                          child: const Text("กดสิ..!!!!"),
+                        ),
                       ],
                     ),
                   ),
@@ -191,64 +206,6 @@ class MainApp extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-// 🔘 ปุ่มสำหรับ GridView
-class ShowAllGridButton extends StatelessWidget {
-  const ShowAllGridButton({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton.icon(
-      onPressed: () {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('แสดงทั้งหมดในกริดกล้วย 🍌')),
-        );
-      },
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.orange.shade600,
-        foregroundColor: Colors.white,
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-        ),
-      ),
-      icon: const Icon(Icons.grid_view, size: 16),
-      label: const Text(
-        'แสดงทั้งหมด',
-        style: TextStyle(fontWeight: FontWeight.bold),
-      ),
-    );
-  }
-}
-
-// 🔘 ปุ่มสำหรับ ListView
-class ShowAllListButton extends StatelessWidget {
-  const ShowAllListButton({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton.icon(
-      onPressed: () {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('แสดงทั้งหมดในรายการลิง 🐒')),
-        );
-      },
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.brown.shade400,
-        foregroundColor: Colors.white,
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-        ),
-      ),
-      icon: const Icon(Icons.list_alt, size: 16),
-      label: const Text(
-        'แสดงทั้งหมด',
-        style: TextStyle(fontWeight: FontWeight.bold),
       ),
     );
   }
