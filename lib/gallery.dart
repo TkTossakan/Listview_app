@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart'; // อย่าลืม import GetX ด้วยนะ
+import 'package:get/get.dart';
+import 'package:listview_app/components/drawer.dart'; // อย่าลืม import GetX ด้วยนะ
 
 void main() {
   runApp(const MainApp());
@@ -45,6 +46,7 @@ class _GalleryState extends State<Gallery> {
         title: const Text('แกลเลอรี่ภาพ 🖼️'),
         backgroundColor: Colors.orange[400],
       ),
+      drawer: const MyDrawer(),
       body: Column(
         children: [
           Expanded(

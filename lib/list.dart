@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart'; // อย่าลืม import GetX
+import 'package:get/get.dart';
+import 'package:listview_app/components/drawer.dart'; // อย่าลืม import GetX
 
 class ListPage extends StatefulWidget {
   const ListPage({super.key});
@@ -16,6 +17,7 @@ class _ListPageState extends State<ListPage> {
         title: const Text('รายการลิง 🐒'),
         backgroundColor: Colors.orange[400],
       ),
+      drawer: const MyDrawer(),
       body: Column(
         children: [
           Padding(

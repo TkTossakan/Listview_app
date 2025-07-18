@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:listview_app/components/drawer.dart';
 import 'package:listview_app/gallery.dart';
 import 'package:listview_app/list.dart';
 
@@ -34,6 +35,7 @@ class MainApp extends StatelessWidget {
           backgroundColor: Colors.orange,
           foregroundColor: Colors.white,
         ),
+        drawer: const MyDrawer(),
         body: Column(
           children: [
             // 🔶 ส่วน GridView ครึ่งบน พร้อมหัวข้อ + ปุ่ม
